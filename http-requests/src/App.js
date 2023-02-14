@@ -5,6 +5,8 @@ import './App.css';
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   // const dummyMovies = [
   //   {
   //     id: 1,
@@ -21,6 +23,8 @@ function App() {
   // ];
 
   const onFetchHandler = async () => {
+    setIsLoading(true);
+    setError(null);
     // fetch('https://swapi.py4e.com/api/films')
     //   .then((response) => {
     //     return response.json();
@@ -38,18 +42,28 @@ function App() {
     //   })
     //   .catch((error) => console.log('error: ', error));
 
-    const response = await fetch('https://swapi.py4e.com/api/films');
-    const data = await response.json();
+    try {
+      const response = await fetch('https://swapi.py4e.com/api/film');
+      if (!response.ok) {
+        throw new Error('Something went wrong');
+      }
+      const data = await response.json();
 
-    console.log('results: ', data.results);
-    const moviesSw = data.results.map((movie) => ({
-      id: movie.episode_id,
-      title: movie.title,
-      openingText: movie.opening_crawl,
-      releaseDate: movie.release_date,
-    }));
+      console.log('results: ', data.results);
+      const moviesSw = data.results.map((movie) => ({
+        id: movie.episode_id,
+        title: movie.title,
+        openingText: movie.opening_crawl,
+        releaseDate: movie.release_date,
+      }));
 
-    setMovies(moviesSw);
+      setMovies(moviesSw);
+    } catch (error) {
+      console.log('error: ', error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -58,7 +72,15 @@ function App() {
         <button onClick={onFetchHandler}>Fetch Movies</button>
       </section>
       <section>
-        <MoviesList movies={movies} />
+        {!error &&
+          (isLoading ? (
+            <p>Loading...</p>
+          ) : movies.length > 0 ? (
+            <MoviesList movies={movies} />
+          ) : (
+            <p>No movies yet</p>
+          ))}
+        {!isLoading && error && <p>{error}</p>}
       </section>
     </React.Fragment>
   );
