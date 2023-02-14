@@ -20,11 +20,11 @@ function App() {
     setTasks(loadedTasks);
   }, []);
 
-  const { isLoading, error, sendRequest: fetchTasks } = useHttp(handleTasks);
+  const { isLoading, error, sendRequest: fetchTasks } = useHttp();
 
   useEffect(() => {
-    fetchTasks(`${apiConstants.firebase}/tasks.json`);
-  }, [fetchTasks]);
+    fetchTasks(handleTasks, `${apiConstants.firebase}/tasks.json`);
+  }, [handleTasks, fetchTasks]);
 
   const taskAddHandler = (task) => {
     setTasks((prevTasks) => prevTasks.concat(task));
