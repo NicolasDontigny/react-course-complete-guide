@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "baseUrl": "./src",
+    "checkJs": true,
+    "jsx": "react",
+    "moduleResolution": "node"
+  }
+}
