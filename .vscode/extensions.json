@@ -1,0 +1,41 @@
+// SPDX-License-Identifier: MIT
+// Copyright 2023 Beslogic Inc.
+// Please keep in alphabetical order
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+  // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+  // List of extensions which should be recommended for users of this workspace.
+  // Only keep those used by your specific project
+  "recommendations": [
+    // "angular.ng-template",
+    "davidanson.vscode-markdownlint",
+    "dbaeumer.vscode-eslint",
+    "dprint.dprint",
+    // "dotenv.dotenv-vscode",
+    "eamodio.gitlens",
+    "firsttris.vscode-jest-runner",
+    // "johnpapa.angular2",
+    "meganrogge.template-string-converter",
+    "ms-vscode.vscode-typescript-next",
+    "pkief.material-icon-theme"
+    // "redhat.vscode-xml",
+    // "redhat.vscode-yaml"
+  ],
+  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+  // Developpers should uninstall or disable the following extensions for this workspace
+  // https://github.com/microsoft/vscode/issues/40239
+  "unwantedRecommendations": [
+    "esbenp.prettier-vscode", // Lots of conflicts
+    "ms-vscode.vscode-typescript-next", // Use workspace version instead
+    "mikestead.dotenv", // Use the official plugin instead
+    "orta.vscode-jest", // jest-runner is preferable and doesn't have issues with parametrized tests
+    "rvest.vs-code-prettier-eslint", // Lots of conflicts
+    "sonarsource.sonarlint-vscode", // The ESLint plugin is sufficient in JS/TS projects
+    // Everything below is Deprecated
+    "coenraads.bracket-pair-colorizer",
+    "coenraads.bracket-pair-colorizer-2",
+    "eg2.tslint",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "simonsiefke.prettier-vscode"
+  ]
+}
