@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useReducer } from 'react';
 
 import CartContext from './cart-context';
@@ -48,6 +49,11 @@ const cartReducer = (state, action) => {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
+  } else if (action.type === 'CLEAR') {
+    return {
+      items: [],
+      totalAmount: 0,
+    };
   }
 
   return defaultCartState;
@@ -64,11 +70,16 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: 'REMOVE', id });
   };
 
+  const clearCartItemsHandler = () => {
+    dispatchCartAction({ type: 'CLEAR ' });
+  };
+
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    clearItems: clearCartItemsHandler,
   };
 
   return <CartContext.Provider value={cartContext}>{props.children}</CartContext.Provider>;

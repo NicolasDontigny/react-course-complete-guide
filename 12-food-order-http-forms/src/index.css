@@ -13,3 +13,22 @@ body {
   background-color: #3f3f3f;
 }
 
+.alert {
+  position: fixed;
+  z-index: 900;
+  right: 32px;
+  bottom: 32px;
+  border: 1px solid transparent;
+  padding: 1rem;
+  border-radius: 5px;
+  min-width: 400px;
+  /* text-align: center; */
+}
+
+.success {
+  /* color: green;
+  background-color: rgb(194, 227, 194); */
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+}
