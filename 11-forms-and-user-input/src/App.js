@@ -1,10 +1,12 @@
-import React from 'react';
-import SimpleInput from './components/SimpleInput';
+import BasicForm from 'components/BasicForm';
+import SignUpForm from 'components/SignUp/SignUpForm';
 
 function App() {
   return (
-    <div className="app">
-      <SimpleInput />
+    <div className='app'>
+      <SignUpForm></SignUpForm>
+      <BasicForm></BasicForm>
+      {/* <SimpleInput /> */}
     </div>
   );
 }

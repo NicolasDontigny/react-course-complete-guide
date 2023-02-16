@@ -93,19 +93,12 @@
         "no-bitwise": "error",
         "no-case-declarations": "off",
         "no-cond-assign": "off",
-        "no-console": [
-          "error",
-          {
-            "allow": [
-              "error"
-            ]
-          }
-        ],
+        "no-console": "warn",
         "no-duplicate-imports": "error",
         "no-extra-semi": "error",
         "no-extra-parens": "off",
         "no-magic-numbers": [
-          "error",
+          "off",
           {
             "ignore": [
               0,
@@ -124,7 +117,7 @@
         ],
         "no-trailing-spaces": "error",
         "no-underscore-dangle": "off",
-        "no-unused-vars": "off",
+        "no-unused-vars": "warn",
         "no-whitespace-before-property": "error",
         "nonblock-statement-body-position": "error",
         "object-curly-newline": [
@@ -177,9 +170,9 @@
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
         // Prettier
-        "prettier/prettier": "error",
-        "prettier/printWidth": 120
+        "prettier/prettier": "error"
       }
     }
   ]

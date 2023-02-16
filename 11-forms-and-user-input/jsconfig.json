@@ -3,7 +3,7 @@
     "module": "es2015",
     "baseUrl": "./src",
     "checkJs": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "moduleResolution": "node"
   }
 }
