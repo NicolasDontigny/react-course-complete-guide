@@ -1,0 +1,188 @@
+{
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "prettier/prettier",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "rules": {
+        // Base EsLint
+        "arrow-body-style": "error",
+        "array-bracket-newline": [
+          "error",
+          "consistent"
+        ],
+        "array-bracket-spacing": [
+          "error",
+          "never"
+        ],
+        "array-element-newline": [
+          "error",
+          "consistent"
+        ],
+        // "arrow-parens": [
+        //   2,
+        //   "as-needed"
+        // ],
+        "arrow-spacing": "error",
+        "block-spacing": "error",
+        "brace-style": "off",
+        "comma-dangle": "off",
+        "comma-spacing": "off",
+        "comma-style": "error",
+        "computed-property-spacing": "error",
+        "complexity": "error",
+        "curly": [
+          "error",
+          "multi-line"
+        ],
+        "dot-location": [
+          "error",
+          "property"
+        ],
+        "eol-last": "error",
+        "eqeqeq": "error",
+        "func-call-spacing": "error",
+        "function-call-argument-newline": [
+          "error",
+          "consistent"
+        ],
+        "function-paren-newline": [
+          "error",
+          "consistent"
+        ],
+        "id-blacklist": "off",
+        "id-match": "off",
+        "key-spacing": "error",
+        "keyword-spacing": "error",
+        "lines-between-class-members": "off",
+        "max-classes-per-file": [
+          "error",
+          5
+        ],
+        "max-len": [
+          "error",
+          {
+            "ignorePattern": "^[ \t]*import|^[ \t]*loadChildren",
+            "code": 120
+          }
+        ],
+        "max-statements-per-line": "error",
+        "newline-per-chained-call": "error",
+        "no-bitwise": "error",
+        "no-case-declarations": "off",
+        "no-cond-assign": "off",
+        "no-console": "warn",
+        "no-duplicate-imports": "error",
+        "no-extra-semi": "error",
+        "no-extra-parens": "off",
+        "no-magic-numbers": [
+          "off",
+          {
+            "ignore": [
+              0,
+              1,
+              2,
+              -1
+            ]
+          }
+        ],
+        "no-multi-spaces": "error",
+        "no-multiple-empty-lines": [
+          "error",
+          {
+            "max": 1
+          }
+        ],
+        "no-trailing-spaces": "error",
+        "no-underscore-dangle": "off",
+        "no-unused-vars": [
+          "warn",
+          {
+            "vars": "all",
+            "varsIgnorePattern": "^_",
+            "args": "after-used",
+            "argsIgnorePattern": "^_"
+          }
+        ],
+        "no-whitespace-before-property": "error",
+        "nonblock-statement-body-position": "error",
+        "object-curly-newline": [
+          "error",
+          {
+            "multiline": true,
+            "consistent": true
+          }
+        ],
+        "object-curly-spacing": [
+          "error",
+          "always"
+        ],
+        "object-property-newline": [
+          "error",
+          {
+            "allowAllPropertiesOnSameLine": true
+          }
+        ],
+        "object-shorthand": "error",
+        "one-var-declaration-per-line": "error",
+        "operator-linebreak": "error",
+        "padded-blocks": [
+          "error",
+          "never"
+        ],
+        "prefer-arrow-callback": "error",
+        "prefer-spread": "off",
+        "quotes": "off",
+        "quote-props": [
+          "error",
+          "consistent"
+        ],
+        "rest-spread-spacing": "error",
+        "semi": "off",
+        "semi-spacing": [
+          "error",
+          {
+            "before": false,
+            "after": true
+          }
+        ],
+        "semi-style": "error",
+        "space-before-blocks": "error",
+        "space-in-parens": "error",
+        "space-infix-ops": "error",
+        "space-unary-ops": "error",
+        "switch-colon-spacing": "error",
+        // React
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
+        // Prettier
+        "prettier/prettier": "error"
+      }
+    }
+  ]
+}
