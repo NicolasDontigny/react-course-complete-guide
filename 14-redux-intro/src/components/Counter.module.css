@@ -8,6 +8,10 @@
   background-color: #f4f0fa;
 }
 
+.counter button {
+  margin: 8px;
+}
+
 .counter h1 {
   text-transform: uppercase;
   color: #575757;
