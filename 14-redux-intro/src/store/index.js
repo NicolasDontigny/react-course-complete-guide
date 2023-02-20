@@ -1,44 +1,16 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from './auth';
+import counterReducer from './counter';
 
-const initialCounterState = { counter: 0, showCounter: true };
-
-const counterSlice = createSlice({
-  name: 'counter',
-  initialState: initialCounterState,
-  reducers: {
-    // Redux toolkit clones automatically the state, never modifies it, so you cannot mutate the state by error
-    increment(state) {
-      state.counter++;
-    },
-    decrement(state) {
-      state.counter--;
-    },
-    increase(state, action) {
-      state.counter += action.payload;
-    },
-    // Action creator method, returns an action object
-    toggleCounter(state) {
-      state.showCounter = !state.showCounter;
-    },
+// Can use single reducer or object of reducers
+const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+    auth: authReducer,
   },
 });
 
-const initialAuthState = { isAuthenticated: false, email: null };
-
-const authSlice = createSlice({
-  name: 'auth',
-  initialState: initialAuthState,
-  reducers: {
-    login(state, action) {
-      state.isAuthenticated = true;
-      state.email = action.payload.email;
-    },
-    logout(state) {
-      state.isAuthenticated = false;
-      state.email = null;
-    },
-  },
-});
+export default store;
 
 // const counterReducer = (state = initialState, action) => {
 //   switch (action.type) {
@@ -63,16 +35,3 @@ const authSlice = createSlice({
 // };
 
 // const store = createStore(counterSlice.reducer);
-
-// Can use single reducer or object of reducers
-const store = configureStore({
-  reducer: {
-    counter: counterSlice.reducer,
-    auth: authSlice.reducer,
-  },
-});
-
-export const counterActions = counterSlice.actions;
-export const authActions = authSlice.actions;
-
-export default store;
