@@ -3,7 +3,7 @@ import Card from '../UI/Card';
 import classes from './Cart.module.css';
 import CartItem from './CartItem';
 
-const Cart = (props) => {
+const Cart = (_props) => {
   const cartItems = useSelector((state) => state.cart.items);
 
   const cartItemComponents = Object.values(cartItems).map((item) => (
@@ -12,8 +12,6 @@ const Cart = (props) => {
       item={item}
     />
   ));
-
-  console.log('Object.values(cartItems): ', Object.values(cartItems));
 
   return (
     <Card className={classes.cart}>
