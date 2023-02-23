@@ -7,8 +7,9 @@ function EventsPage() {
   // const [fetchedEvents, setFetchedEvents] = useState();
   // const [error, setError] = useState('');
   const data = useLoaderData();
+  const { events } = data;
 
-  return <EventsList events={data} />;
+  return <EventsList events={events} />;
 }
 
 export default EventsPage;
@@ -19,7 +20,9 @@ export const eventsLoader = async () => {
   if (!response.ok) {
     // ...
   } else {
-    const resData = await response.json();
-    return resData.events;
+    return response;
+    // const resData = await response.json();
+    // const res = new Response(resData, { status: 201 });
+    // return res;
   }
 };
