@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import EventsNavigation from './components/EventsNavigation';
 import EditEventPage from './pages/EditEventPage';
 import EventDetailPage from './pages/EventDetailPage';
-import EventsPage from './pages/EventsPage';
+import EventsPage, { eventsLoader } from './pages/EventsPage';
 import HomePage from './pages/HomePage';
 import NewEventPage from './pages/NewEventPage';
 import { RootLayout } from './pages/Root';
@@ -41,7 +41,12 @@ const router = createBrowserRouter([
         path: 'events',
         element: <RootEventsLayout />,
         children: [
-          { index: true, element: <EventsPage /> },
+          {
+            index: true,
+            element: <EventsPage />,
+            // React router will await the Promise and return the result into data
+            loader: eventsLoader,
+          },
           { path: ':eventId', element: <EventDetailPage /> },
           { path: 'new', element: <NewEventPage /> },
           { path: ':eventId/edit', element: <EditEventPage /> },
