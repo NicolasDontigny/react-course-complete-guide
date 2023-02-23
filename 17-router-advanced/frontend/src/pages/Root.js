@@ -8,15 +8,7 @@ export const RootLayout = () => {
     <>
       <MainNavigation></MainNavigation>
       <main className={classes['main-content']}>
-        {navigation.state === 'loading' && (
-          <p>
-            <img
-              src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921'
-              alt=''
-            />{' '}
-            Loading...
-          </p>
-        )}
+        {navigation.state === 'loading' && <p>Loading...</p>}
         <Outlet></Outlet>
       </main>
     </>

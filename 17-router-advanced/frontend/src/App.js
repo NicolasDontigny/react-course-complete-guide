@@ -1,10 +1,9 @@
 // Challenge / Exercise
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import EventsNavigation from './components/EventsNavigation';
 import EditEventPage from './pages/EditEventPage';
 import ErrorPage from './pages/Error';
-import EventDetailPage from './pages/EventDetailPage';
+import EventDetailPage, { eventDetailLoader } from './pages/EventDetailPage';
 import EventsPage, { eventsLoader } from './pages/EventsPage';
 import HomePage from './pages/HomePage';
 import NewEventPage from './pages/NewEventPage';
@@ -49,9 +48,18 @@ const router = createBrowserRouter([
             // React router will await the Promise and return the result into data
             loader: eventsLoader,
           },
-          { path: ':eventId', element: <EventDetailPage /> },
+          {
+            path: ':eventId',
+            // id used to access loader data
+            id: 'event-detail',
+            // Shared loader for children elements, will execute for any children rendered
+            loader: eventDetailLoader,
+            children: [
+              { index: true, element: <EventDetailPage /> },
+              { path: 'edit', element: <EditEventPage /> },
+            ],
+          },
           { path: 'new', element: <NewEventPage /> },
-          { path: ':eventId/edit', element: <EditEventPage /> },
         ],
       },
     ],
