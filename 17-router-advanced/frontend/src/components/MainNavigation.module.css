@@ -1,7 +1,11 @@
 .header {
+  padding: 2rem;
+  background-color: purple;
+}
+
+.header nav {
   max-width: 60rem;
   margin: auto;
-  padding: 2rem;
   display: flex;
   justify-content: space-between;
 }
@@ -14,9 +18,11 @@
 .list a {
   text-decoration: none;
   color: var(--color-primary-400);
+  cursor: pointer;
 }
 
 .list a:hover,
 .list a.active {
   color: var(--color-primary-800);
+  text-decoration: underline;
 }

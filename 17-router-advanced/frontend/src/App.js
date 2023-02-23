@@ -1,5 +1,15 @@
 // Challenge / Exercise
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import EventsNavigation from './components/EventsNavigation';
+import EditEventPage from './pages/EditEventPage';
+import EventDetailPage from './pages/EventDetailPage';
+import EventsPage from './pages/EventsPage';
+import HomePage from './pages/HomePage';
+import NewEventPage from './pages/NewEventPage';
+import { RootLayout } from './pages/Root';
+import RootEventsLayout from './pages/RootEvents';
+
 // 1. Add five new (dummy) page components (content can be simple <h1> elements)
 //    - HomePage
 //    - EventsPage
@@ -18,10 +28,31 @@
 // 6. Output a list of dummy events to the EventsPage
 //    Every list item should include a link to the respective EventDetailPage
 // 7. Output the ID of the selected event on the EventDetailPage
+// eslint-disable-next-line max-len
 // BONUS: Add another (nested) layout route that adds the <EventNavigation> component above all /events... page components
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      {
+        path: 'events',
+        element: <RootEventsLayout />,
+        children: [
+          { index: true, element: <EventsPage /> },
+          { path: ':eventId', element: <EventDetailPage /> },
+          { path: 'new', element: <NewEventPage /> },
+          { path: ':eventId/edit', element: <EditEventPage /> },
+        ],
+      },
+    ],
+  },
+]);
+
 function App() {
-  return <div></div>;
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

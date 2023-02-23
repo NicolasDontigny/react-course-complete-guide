@@ -48,3 +48,15 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+.link,
+.link a {
+  color: white;
+}
+
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: lightcoral;
+}
