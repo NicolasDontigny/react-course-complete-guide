@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import classes from './EventsList.module.css';
 
 function EventsList({ events }) {
@@ -11,8 +11,8 @@ function EventsList({ events }) {
             key={event.id}
             className={classes.item}
           >
-            <NavLink
-              to={event.id}
+            <Link
+              to={`/events/${event.id}`}
               className='link'
             >
               <img
@@ -23,7 +23,7 @@ function EventsList({ events }) {
                 <h2>{event.title}</h2>
                 <time>{event.date}</time>
               </div>
-            </NavLink>
+            </Link>
           </li>
         ))}
       </ul>
