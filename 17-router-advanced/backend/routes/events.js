@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
 
     setTimeout(() => {
       res.json({ events: events });
-    }, 1000);
+    }, 2000);
   } catch (error) {
     next(error);
   }
@@ -56,7 +56,10 @@ router.post('/', async (req, res, next) => {
 
   try {
     await add(data);
-    res.status(201).json({ message: 'Event saved.', event: data });
+
+    setTimeout(() => {
+      res.status(201).json({ message: 'Event saved.', event: data });
+    }, 1500);
   } catch (error) {
     next(error);
   }

@@ -1,12 +1,14 @@
 // Challenge / Exercise
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { eventFormAction } from './components/EventForm';
 import EditEventPage from './pages/EditEventPage';
 import ErrorPage from './pages/Error';
-import EventDetailPage, { eventDetailLoader } from './pages/EventDetailPage';
+import EventDetailPage, { deleteEventAction, eventDetailLoader } from './pages/EventDetailPage';
 import EventsPage, { eventsLoader } from './pages/EventsPage';
 import HomePage from './pages/HomePage';
 import NewEventPage from './pages/NewEventPage';
+import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
 import { RootLayout } from './pages/Root';
 import RootEventsLayout from './pages/RootEvents';
 
@@ -55,12 +57,17 @@ const router = createBrowserRouter([
             // Shared loader for children elements, will execute for any children rendered
             loader: eventDetailLoader,
             children: [
-              { index: true, element: <EventDetailPage /> },
-              { path: 'edit', element: <EditEventPage /> },
+              { index: true, element: <EventDetailPage />, action: deleteEventAction },
+              { path: 'edit', element: <EditEventPage />, action: eventFormAction },
             ],
           },
-          { path: 'new', element: <NewEventPage /> },
+          { path: 'new', element: <NewEventPage />, action: eventFormAction },
         ],
+      },
+      {
+        path: 'newsletter',
+        element: <NewsletterPage />,
+        action: newsletterAction,
       },
     ],
   },
