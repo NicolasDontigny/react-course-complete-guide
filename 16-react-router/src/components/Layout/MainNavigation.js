@@ -8,7 +8,7 @@ const MainNavigation = () => (
         <li>
           <NavLink
             to='/'
-            className={({ isActive }) => isActive && classes.active}
+            className={({ isActive }) => (isActive ? classes.active : undefined)}
             end
           >
             Home
@@ -17,7 +17,7 @@ const MainNavigation = () => (
         <li>
           <NavLink
             to='/products'
-            className={({ isActive }) => isActive && classes.active}
+            className={({ isActive }) => (isActive ? classes.active : undefined)}
           >
             Products
           </NavLink>
