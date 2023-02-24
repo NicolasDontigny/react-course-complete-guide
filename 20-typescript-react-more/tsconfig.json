@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    // Which type of Javascript the code is compiled to
     "target": "es5",
+    // Builtin to Typescript, but we still need to specify them (ie: HTMLInputElement is part of 'dom')
     "lib": [
       "dom",
       "dom.iterable",
