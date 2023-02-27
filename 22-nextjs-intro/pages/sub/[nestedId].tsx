@@ -1,3 +1,7 @@
+import { useRouter } from 'next/router';
+
 export default function NestedPage() {
-  return <h1>Nested Page</h1>;
+  const router = useRouter();
+  const query = router.query?.nestedId;
+  return <h1>Nested Page {query}</h1>;
 }
