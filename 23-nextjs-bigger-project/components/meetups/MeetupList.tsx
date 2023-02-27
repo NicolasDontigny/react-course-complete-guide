@@ -1,10 +1,15 @@
+import { Meetup } from '../../models/meetup.model';
 import MeetupItem from './MeetupItem';
 import classes from './MeetupList.module.css';
 
-function MeetupList(props) {
+interface MeetupListProps {
+  meetups: Meetup[];
+}
+
+const MeetupList: React.FC<MeetupListProps> = (props: any) => {
   return (
     <ul className={classes.list}>
-      {props.meetups.map((meetup) => (
+      {props.meetups.map((meetup: any) => (
         <MeetupItem
           key={meetup.id}
           id={meetup.id}
